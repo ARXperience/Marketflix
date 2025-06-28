@@ -127,6 +127,15 @@
       display: inline-block;
     }
 
+ /* Ocultar barra scroll solo en escritorio */
+    @media (min-width: 769px) {
+      .carousel {
+        scrollbar-width: none; /* Firefox */
+      }
+      .carousel::-webkit-scrollbar {
+        display: none; /* Chrome, Safari */
+         }
+    }
     @media (max-width: 768px) {
       .desktop-nav {
         display: none;
