@@ -48,27 +48,27 @@
       font-weight: 500;
     }
 
-    .mobile-menu-toggle {
+    /* Imagen de perfil en móvil */
+    .profile-img {
       display: none;
-      background: none;
-      border: none;
-      font-size: 2rem;
-      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 10%;
+      object-fit: cover;
       cursor: pointer;
     }
 
-    /* Menú desplegable en móvil */
     .mobile-menu {
       display: none;
       flex-direction: column;
       gap: 10px;
       background: rgba(0, 0, 0, 0.9);
       position: absolute;
-      top: 60px;
+      top: 70px;
       right: 30px;
       padding: 15px;
       border-radius: 6px;
-      z-index: 10;
+      z-index: 1000;
     }
 
     .mobile-menu a {
@@ -79,20 +79,6 @@
 
     .mobile-menu a:hover {
       color: #e50914;
-    }
-
-    .close-menu {
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 18px;
-      align-self: flex-end;
-      cursor: pointer;
-      margin-bottom: 10px;
-    }
-
-    .mobile-visible {
-      display: flex !important;
     }
 
     .hero {
@@ -144,13 +130,26 @@
       display: inline-block;
     }
 
-    /* Ocultar barra scroll solo en escritorio */
+    h2 {
+      margin: 2rem 2rem 1rem;
+    }
+
+    /* Ocultar scroll solo en escritorio */
     @media (min-width: 769px) {
       .carousel {
-        scrollbar-width: none; /* Firefox */
+        scrollbar-width: none;
       }
+
       .carousel::-webkit-scrollbar {
-        display: none; /* Chrome, Safari */
+        display: none;
+      }
+
+      .mobile-menu {
+        display: none !important;
+      }
+
+      .profile-img {
+        display: none;
       }
     }
 
@@ -159,18 +158,8 @@
         display: none;
       }
 
-      .mobile-menu-toggle {
+      .profile-img {
         display: block;
-      }
-    }
-
-    @media (min-width: 769px) {
-      .mobile-menu {
-        display: none !important;
-      }
-
-      .mobile-menu-toggle {
-        display: none;
       }
     }
   </style>
@@ -188,12 +177,11 @@
       <a href="#">Cerrar sesión</a>
     </nav>
 
-    <!-- Botón hamburguesa móvil -->
-    <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
+    <!-- Imagen de perfil en móvil -->
+    <img class="profile-img" src="https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp" alt="Perfil" onclick="toggleMenu()">
 
     <!-- Menú móvil -->
     <div class="mobile-menu" id="mobileMenu">
-      <button class="close-menu" onclick="toggleMenu()">❌</button>
       <a href="#">Inicio</a>
       <a href="#">Mi cuenta</a>
       <a href="#">Mi plan</a>
@@ -210,8 +198,8 @@
     </div>
   </section>
 
-  <section style="padding: 2rem;">
-    <h2 style="margin-bottom: 1rem;">🎬 Recomendados para ti</h2>
+  <section>
+    <h2>🎬 Recomendados para ti</h2>
     <div class="carousel">
       <img src="https://i.imgur.com/F5wMnfP.png" />
       <img src="https://i.imgur.com/vylQH88.png" />
@@ -234,7 +222,7 @@
 
     function toggleMenu() {
       const menu = document.getElementById("mobileMenu");
-      menu.classList.toggle("mobile-visible");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     }
   </script>
 
