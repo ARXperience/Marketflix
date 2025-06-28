@@ -81,6 +81,16 @@
       color: #e50914;
     }
 
+    .close-menu {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 18px;
+      align-self: flex-end;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
     .mobile-visible {
       display: flex !important;
     }
@@ -137,10 +147,10 @@
     /* Ocultar barra scroll solo en escritorio */
     @media (min-width: 769px) {
       .carousel {
-        scrollbar-width: none;
+        scrollbar-width: none; /* Firefox */
       }
       .carousel::-webkit-scrollbar {
-        display: none;
+        display: none; /* Chrome, Safari */
       }
     }
 
@@ -183,6 +193,7 @@
 
     <!-- Menú móvil -->
     <div class="mobile-menu" id="mobileMenu">
+      <button class="close-menu" onclick="toggleMenu()">❌</button>
       <a href="#">Inicio</a>
       <a href="#">Mi cuenta</a>
       <a href="#">Mi plan</a>
@@ -190,7 +201,6 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <h1>Pearl</h1>
     <p>En 1918, una chica de Texas con un deseo de fama arriesga todo en busca de su oportunidad.</p>
@@ -200,7 +210,6 @@
     </div>
   </section>
 
-  <!-- CARRUSEL -->
   <section style="padding: 2rem;">
     <h2 style="margin-bottom: 1rem;">🎬 Recomendados para ti</h2>
     <div class="carousel">
@@ -217,7 +226,6 @@
     </div>
   </section>
 
-  <!-- SCRIPT -->
   <script>
     const header = document.getElementById("main-header");
     window.addEventListener("scroll", () => {
