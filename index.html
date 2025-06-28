@@ -2,8 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marketflix Login</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -11,21 +16,25 @@
       min-height: 100vh;
       color: #fff;
     }
+
     .logo {
       width: 140px;
-      margin: 20px 0 0 20px;
+      margin: 20px;
     }
+
     .container {
-      background: rgba(0,0,0,0.75);
-      width: 330px;
+      background: rgba(0, 0, 0, 0.75);
+      max-width: 360px;
       margin: 60px auto;
-      padding: 40px;
+      padding: 40px 30px;
       border-radius: 4px;
     }
+
     .container h1 {
       margin-bottom: 25px;
       font-size: 32px;
     }
+
     .input-field {
       width: 100%;
       padding: 12px;
@@ -35,6 +44,7 @@
       border-radius: 4px;
       color: #fff;
     }
+
     .signin-btn {
       width: 100%;
       padding: 12px;
@@ -47,6 +57,7 @@
       cursor: pointer;
       margin-top: 10px;
     }
+
     .options {
       display: flex;
       justify-content: space-between;
@@ -54,28 +65,58 @@
       margin: 15px 0;
       font-size: 14px;
     }
+
     .options a {
       color: #b3b3b3;
       text-decoration: none;
     }
+
     .signup {
       margin-top: 40px;
       font-size: 16px;
       text-align: center;
     }
+
     .signup a {
       color: #fff;
       font-weight: bold;
       text-decoration: none;
     }
+
     .recaptcha {
       margin-top: 20px;
       font-size: 12px;
       color: #8c8c8c;
     }
+
     .recaptcha a {
       color: #0071eb;
       text-decoration: none;
+    }
+
+    /* Responsive: Ajuste en pantallas pequeñas */
+    @media (max-width: 480px) {
+      .container {
+        margin: 40px 20px;
+        padding: 30px 20px;
+      }
+
+      .logo {
+        width: 100px;
+        display: block;
+        margin: 20px auto 0;
+      }
+
+      .container h1 {
+        font-size: 26px;
+        text-align: center;
+      }
+
+      .options {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
