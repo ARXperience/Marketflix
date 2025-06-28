@@ -48,7 +48,6 @@
       font-weight: 500;
     }
 
-    /* Imagen de perfil en móvil */
     .profile-img {
       display: none;
       width: 40px;
@@ -82,11 +81,28 @@
     }
 
     .hero {
+      position: relative;
       height: 100vh;
-      background: url('https://i.imgur.com/J4Gz7zD.jpeg') no-repeat center center/cover;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
+      height: 100%;
       padding: 2rem;
     }
 
@@ -134,7 +150,6 @@
       margin: 2rem 2rem 1rem;
     }
 
-    /* Ocultar scroll solo en escritorio */
     @media (min-width: 769px) {
       .carousel {
         scrollbar-width: none;
@@ -168,33 +183,33 @@
 
   <header id="main-header" class="transparent">
     <img src="https://i.imgur.com/9QLXNMs.png" alt="Logo" class="logo" />
-
-    <!-- Menú escritorio -->
     <nav class="desktop-nav">
-      <a href="#"onclick="window.location.href='https://arxperience.github.io/Marketflix/Inicio.html'">Inicio</a>
-      <a href="#"onclick="window.location.href='https://arxperience.github.io/Marketflix/cuenta.html'">Mi cuenta</a> 
-      <a href="#" >Mi plan</a>
+      <a href="#" onclick="window.location.href='https://arxperience.github.io/Marketflix/Inicio.html'">Inicio</a>
+      <a href="#" onclick="window.location.href='https://arxperience.github.io/Marketflix/cuenta.html'">Mi cuenta</a> 
+      <a href="#">Mi plan</a>
       <a href="#">Cerrar sesión</a>
     </nav>
-
-    <!-- Imagen de perfil en móvil -->
     <img class="profile-img" src="https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp" alt="Perfil" onclick="toggleMenu()">
-
-    <!-- Menú móvil -->
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#"onclick="window.location.href='https://arxperience.github.io/Marketflix/Inicio.html'">Inicio</a>
-      <a href="#"onclick="window.location.href='https://arxperience.github.io/Marketflix/cuenta.html'">Mi cuenta</a> 
+      <a href="#" onclick="window.location.href='https://arxperience.github.io/Marketflix/Inicio.html'">Inicio</a>
+      <a href="#" onclick="window.location.href='https://arxperience.github.io/Marketflix/cuenta.html'">Mi cuenta</a> 
       <a href="#">Mi plan</a>
       <a href="#">Cerrar sesión</a>
     </div>
   </header>
 
   <section class="hero">
-    <h1>Marketing con IA</h1>
-    <p>Aprende a usar la inteligencia artificial (IA) para optimizar tus estrategias de marketing con el curso de IA para Marketing de Marketflix University.</p>
-    <div class="buttons">
-      <button class="play" onclick="window.location.href='https://arxperience.github.io/Marketflix/curso.html'" >▶ Reproducir</button> 
-      <button class="info">ℹ Más información</button>
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="Curso1.mp4" type="video/mp4">
+      Tu navegador no soporta videos HTML5.
+    </video>
+    <div class="hero-content">
+      <h1>Marketing con IA</h1>
+      <p>Aprende a usar la inteligencia artificial (IA) para optimizar tus estrategias de marketing con el curso de IA para Marketing de Marketflix University.</p>
+      <div class="buttons">
+        <button class="play" onclick="window.location.href='https://arxperience.github.io/Marketflix/curso.html'" >▶ Reproducir</button> 
+        <button class="info">ℹ Más información</button>
+      </div>
     </div>
   </section>
 
