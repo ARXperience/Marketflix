@@ -29,11 +29,15 @@
       z-index: 0;
     }
 
+    .logo-wrapper {
+      position: relative;
+      z-index: 1;
+    }
+
     .logo {
       width: 140px;
       margin: 20px;
-      position: relative;
-      z-index: 1;
+      display: block;
     }
 
     .container {
@@ -110,7 +114,7 @@
       text-decoration: none;
     }
 
-    /* Responsive */
+    /* Responsive: solo para móvil */
     @media (max-width: 480px) {
       .container {
         margin: 40px 20px;
@@ -119,7 +123,12 @@
 
       .logo {
         width: 120px;
-        margin: 20px;
+        margin: 0 auto;
+        padding: 15px 20px;
+      }
+
+      .logo-wrapper {
+        background-color: rgba(0, 0, 0, 0.8);
       }
 
       .container h1 {
@@ -136,7 +145,10 @@
   </style>
 </head>
 <body>
-  <img class="logo" src="https://i.imgur.com/9QLXNMs.png" alt="Netflix logo">
+  <div class="logo-wrapper">
+    <img class="logo" src="https://i.imgur.com/9QLXNMs.png" alt="Netflix logo">
+  </div>
+
   <div class="container">
     <h1>Inicia sesión</h1>
     <form>
