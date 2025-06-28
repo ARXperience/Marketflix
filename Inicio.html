@@ -58,24 +58,34 @@
     }
 
     .mobile-menu {
-      display: none;
-      position: absolute;
-      top: 60px;
-      right: 20px;
-      background-color: rgba(0, 0, 0, 0.9);
-      padding: 1rem;
-      border-radius: 8px;
+      position: fixed;
+      top: 0;
+      right: -300px;
+      height: 100%;
+      width: 250px;
+      background-color: rgba(0, 0, 0, 0.95);
+      transition: right 0.3s ease;
+      padding: 2rem 1.5rem;
+      z-index: 1000;
+    }
+
+    .mobile-menu.open {
+      right: 0;
+    }
+
+    .mobile-menu img {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      margin-bottom: 1rem;
     }
 
     .mobile-menu a {
       display: block;
       color: #fff;
       margin-bottom: 1rem;
+      font-weight: 500;
       text-decoration: none;
-    }
-
-    .mobile-visible {
-      display: block !important;
     }
 
     .hero {
@@ -114,8 +124,16 @@
     .play { background-color: white; color: black; }
     .info { background-color: rgba(109, 109, 110, 0.7); color: white; }
 
-    .carousel {
+    .carousel-section {
       padding: 2rem;
+    }
+
+    .carousel-title {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .carousel {
       overflow-x: auto;
       white-space: nowrap;
     }
@@ -127,15 +145,16 @@
       display: inline-block;
     }
 
- /* Ocultar barra scroll solo en escritorio */
+    /* Ocultar barra scroll solo en escritorio */
     @media (min-width: 769px) {
       .carousel {
-        scrollbar-width: none; /* Firefox */
+        scrollbar-width: none;
       }
       .carousel::-webkit-scrollbar {
-        display: none; /* Chrome, Safari */
-         }
+        display: none;
+      }
     }
+
     @media (max-width: 768px) {
       .desktop-nav {
         display: none;
@@ -159,10 +178,11 @@
 </head>
 <body>
 
+  <!-- HEADER -->
   <header id="main-header" class="transparent">
     <img src="https://i.imgur.com/9QLXNMs.png" alt="Logo" class="logo" />
 
-    <!-- Menú escritorio -->
+    <!-- NAV ESCRITORIO -->
     <nav class="desktop-nav">
       <a href="#">Inicio</a>
       <a href="#">Mi cuenta</a>
@@ -170,18 +190,20 @@
       <a href="#">Cerrar sesión</a>
     </nav>
 
-    <!-- Botón hamburguesa móvil -->
+    <!-- BOTÓN HAMBURGUESA -->
     <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
-
-    <!-- Menú móvil -->
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#">Inicio</a>
-      <a href="#">Mi cuenta</a>
-      <a href="#">Mi plan</a>
-      <a href="#">Cerrar sesión</a>
-    </div>
   </header>
 
+  <!-- MENÚ MÓVIL -->
+  <div class="mobile-menu" id="mobileMenu">
+    <img src="https://i.imgur.com/YhfKkCG.png" alt="Perfil" />
+    <a href="#">Inicio</a>
+    <a href="#">Mi cuenta</a>
+    <a href="#">Mi plan</a>
+    <a href="#">Cerrar sesión</a>
+  </div>
+
+  <!-- HERO -->
   <section class="hero">
     <h1>Pearl</h1>
     <p>En 1918, una chica de Texas con un deseo de fama arriesga todo en busca de su oportunidad.</p>
@@ -191,30 +213,31 @@
     </div>
   </section>
 
-  <section style="padding: 2rem;">
-  <h2 style="margin-bottom: 1rem;">🎬 Recomendados para ti</h2>
-  <div class="carousel">
-    <img src="https://i.imgur.com/F5wMnfP.png" />
-    <img src="https://i.imgur.com/vylQH88.png" />
-    <img src="https://i.imgur.com/QA9TmRD.png" />
-    <img src="https://i.imgur.com/2o1BmpI.png" />
-    <img src="https://i.imgur.com/MzptDGX.png" />
-    <img src="https://i.imgur.com/F5wMnfP.png" />
-    <img src="https://i.imgur.com/vylQH88.png" />
-    <img src="https://i.imgur.com/QA9TmRD.png" />
-    <img src="https://i.imgur.com/2o1BmpI.png" />
-    <img src="https://i.imgur.com/MzptDGX.png" />
+  <!-- CARRUSEL -->
+  <section class="carousel-section">
+    <h2 class="carousel-title">🎬 Recomendados para ti</h2>
+    <div class="carousel">
+      <img src="https://i.imgur.com/F5wMnfP.png" />
+      <img src="https://i.imgur.com/vylQH88.png" />
+      <img src="https://i.imgur.com/QA9TmRD.png" />
+      <img src="https://i.imgur.com/2o1BmpI.png" />
+      <img src="https://i.imgur.com/MzptDGX.png" />
+      <img src="https://i.imgur.com/F5wMnfP.png" />
+      <img src="https://i.imgur.com/vylQH88.png" />
+    </div>
   </section>
 
+  <!-- SCRIPT -->
   <script>
     const header = document.getElementById("main-header");
+    const menu = document.getElementById("mobileMenu");
+
     window.addEventListener("scroll", () => {
       header.classList.toggle("scrolled", window.scrollY > 10);
     });
 
     function toggleMenu() {
-      const menu = document.getElementById("mobileMenu");
-      menu.classList.toggle("mobile-visible");
+      menu.classList.toggle("open");
     }
   </script>
 
