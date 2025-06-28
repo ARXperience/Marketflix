@@ -1,1 +1,103 @@
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Marketflix Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #000 url('https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      min-height: 100vh;
+      color: #fff;
+    }
+    .logo {
+      width: 140px;
+      margin: 20px 0 0 20px;
+    }
+    .container {
+      background: rgba(0,0,0,0.75);
+      width: 330px;
+      margin: 60px auto;
+      padding: 40px;
+      border-radius: 4px;
+    }
+    .container h1 {
+      margin-bottom: 25px;
+      font-size: 32px;
+    }
+    .input-field {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      background: #333;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+    }
+    .signin-btn {
+      width: 100%;
+      padding: 12px;
+      background: #e50914;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 15px 0;
+      font-size: 14px;
+    }
+    .options a {
+      color: #b3b3b3;
+      text-decoration: none;
+    }
+    .signup {
+      margin-top: 40px;
+      font-size: 16px;
+      text-align: center;
+    }
+    .signup a {
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .recaptcha {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #8c8c8c;
+    }
+    .recaptcha a {
+      color: #0071eb;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix logo">
+  <div class="container">
+    <h1>Inicia sesión</h1>
+    <form>
+      <input class="input-field" type="email" placeholder="Correo o número de teléfono" required>
+      <input class="input-field" type="password" placeholder="Contraseña" required>
+      <button class="signin-btn" type="submit">Entrar</button>
+      <div class="options">
+        <label><input type="checkbox"> Recuérdame</label>
+        <a href="#">¿Necesitas ayuda?</a>
+      </div>
+    </form>
+    <div class="signup">
+      ¿Nuevo en Netflix? <a href="#">Suscríbete ahora</a>.
+    </div>
+    <div class="recaptcha">
+      Esta página está protegida por Google reCAPTCHA para asegurarnos de que no eres un robot. <a href="#">Más información</a>.
+    </div>
+  </div>
+</body>
+</html>
