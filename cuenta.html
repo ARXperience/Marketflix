@@ -29,26 +29,31 @@
       z-index: 0;
     }
 
-    nav {
-      background: rgba(0, 0, 0, 0.85);
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .logo-wrapper {
       position: relative;
       z-index: 1;
     }
 
-    nav .logo {
-      font-weight: bold;
-      font-size: 20px;
-      color: #e50914;
+    .logo {
+      width: 140px;
+      margin: 20px;
+      display: block;
+    }
+
+    nav {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 10px 30px 0;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+      z-index: 1;
     }
 
     nav a {
       color: #fff;
       text-decoration: none;
-      margin-left: 20px;
       font-size: 15px;
     }
 
@@ -105,14 +110,15 @@
     }
 
     @media (max-width: 500px) {
+      .logo-wrapper {
+        background-color: rgba(0, 0, 0, 0.85);
+      }
+
       nav {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
-      }
-
-      nav a {
-        margin-left: 3;
+        padding: 10px 20px 0;
       }
 
       .container {
@@ -129,21 +135,22 @@
 </head>
 <body>
 
+  <div class="logo-wrapper">
+    <img class="logo" src="https://i.imgur.com/9QLXNMs.png" alt="Marketflix logo">
+  </div>
+
   <nav>
-    <div class="logo">Marketflix</div>
-    <div>
-      <a href="#">Inicio</a>
-      <a href="#">Mi cuenta</a>
-      <a href="#">Mi plan</a>
-      <a href="#">Cerrar sesión</a>
-    </div>
+    <a href="#">Inicio</a>
+    <a href="#">Mi cuenta</a>
+    <a href="#">Mi plan</a>
+    <a href="#">Cerrar sesión</a>
   </nav>
 
   <div class="container">
     <h1>Mi cuenta</h1>
     <div class="info">
-      <p><strong>Nombre:</strong>Nombre del usuario</p>
-      <p><strong>Correo:</strong>Nombredeusuario@email.com</p>
+      <p><strong>Nombre:</strong> Juliana Vargas</p>
+      <p><strong>Correo:</strong> juliana@email.com</p>
       <p><strong>Plan actual:</strong> Básico</p>
       <p><strong>Próximo pago:</strong> 6 de julio de 2025</p>
       <p><strong>Miembro desde:</strong> junio de 2025</p>
