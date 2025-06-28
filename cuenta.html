@@ -37,7 +37,6 @@
       align-items: center;
       position: relative;
       z-index: 1;
-      flex-wrap: wrap;
     }
 
     .logo {
@@ -56,6 +55,39 @@
     }
 
     .nav-links a:hover {
+      color: #e50914;
+    }
+
+    .profile-img {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    /* Menú desplegable en móvil */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      background: rgba(0, 0, 0, 0.9);
+      position: absolute;
+      top: 60px;
+      right: 30px;
+      padding: 15px;
+      border-radius: 6px;
+      z-index: 10;
+    }
+
+    .mobile-menu a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .mobile-menu a:hover {
       color: #e50914;
     }
 
@@ -108,29 +140,12 @@
     }
 
     @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-
-      .logo {
-        width: 120px;
-      }
-
       .nav-links {
-        flex-direction: column;
-        gap: 10px;
+        display: none;
       }
 
-      .container {
-        margin: 40px 20px;
-        padding: 25px;
-      }
-
-      .actions a {
+      .profile-img {
         display: block;
-        margin: 10px auto;
       }
     }
   </style>
@@ -140,6 +155,14 @@
   <nav>
     <img class="logo" src="https://i.imgur.com/9QLXNMs.png" alt="Marketflix logo">
     <div class="nav-links">
+      <a href="#">Inicio</a>
+      <a href="#">Mi cuenta</a>
+      <a href="#">Mi plan</a>
+      <a href="#">Cerrar sesión</a>
+    </div>
+    <!-- Imagen de perfil para versión móvil -->
+    <img class="profile-img" src="https://wallpapers.com/images/hd/netflix-profile-pictures-6bgwp0hfh7e4f1ap.jpg" alt="Perfil" onclick="toggleMenu()">
+    <div class="mobile-menu" id="mobileMenu">
       <a href="#">Inicio</a>
       <a href="#">Mi cuenta</a>
       <a href="#">Mi plan</a>
@@ -163,6 +186,13 @@
       <a href="#" class="secondary">Cerrar sesión</a>
     </div>
   </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
 
 </body>
 </html>
