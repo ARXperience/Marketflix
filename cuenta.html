@@ -29,35 +29,33 @@
       z-index: 0;
     }
 
-    .logo-wrapper {
+    nav {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       position: relative;
       z-index: 1;
+      flex-wrap: wrap;
     }
 
     .logo {
       width: 140px;
-      margin: 20px;
-      display: block;
     }
 
-    nav {
-      background: rgba(0, 0, 0, 0.85);
-      padding: 10px 30px 0;
+    .nav-links {
       display: flex;
-      justify-content: flex-end;
-      align-items: center;
       gap: 20px;
-      position: relative;
-      z-index: 1;
     }
 
-    nav a {
+    .nav-links a {
       color: #fff;
       text-decoration: none;
       font-size: 15px;
     }
 
-    nav a:hover {
+    .nav-links a:hover {
       color: #e50914;
     }
 
@@ -109,16 +107,20 @@
       background: #333;
     }
 
-    @media (max-width: 500px) {
-      .logo-wrapper {
-        background-color: rgba(0, 0, 0, 0.85);
-      }
-
+    @media (max-width: 600px) {
       nav {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
-        padding: 10px 20px 0;
+      }
+
+      .logo {
+        width: 120px;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
       }
 
       .container {
@@ -135,15 +137,14 @@
 </head>
 <body>
 
-  <div class="logo-wrapper">
-    <img class="logo" src="https://i.imgur.com/9QLXNMs.png" alt="Marketflix logo">
-  </div>
-
   <nav>
-    <a href="#">Inicio</a>
-    <a href="#">Mi cuenta</a>
-    <a href="#">Mi plan</a>
-    <a href="#">Cerrar sesión</a>
+    <img class="logo" src="https://i.imgur.com/9QLXNMs.png" alt="Marketflix logo">
+    <div class="nav-links">
+      <a href="#">Inicio</a>
+      <a href="#">Mi cuenta</a>
+      <a href="#">Mi plan</a>
+      <a href="#">Cerrar sesión</a>
+    </div>
   </nav>
 
   <div class="container">
