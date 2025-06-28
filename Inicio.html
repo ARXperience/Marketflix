@@ -57,35 +57,32 @@
       cursor: pointer;
     }
 
+    /* Menú desplegable en móvil */
     .mobile-menu {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      height: 100%;
-      width: 250px;
-      background-color: rgba(0, 0, 0, 0.95);
-      transition: right 0.3s ease;
-      padding: 2rem 1.5rem;
-      z-index: 1000;
-    }
-
-    .mobile-menu.open {
-      right: 0;
-    }
-
-    .mobile-menu img {
-      width: 60px;
-      height: 60px;
-      border-radius: 12px;
-      margin-bottom: 1rem;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      background: rgba(0, 0, 0, 0.9);
+      position: absolute;
+      top: 60px;
+      right: 30px;
+      padding: 15px;
+      border-radius: 6px;
+      z-index: 10;
     }
 
     .mobile-menu a {
-      display: block;
       color: #fff;
-      margin-bottom: 1rem;
-      font-weight: 500;
       text-decoration: none;
+      font-size: 14px;
+    }
+
+    .mobile-menu a:hover {
+      color: #e50914;
+    }
+
+    .mobile-visible {
+      display: flex !important;
     }
 
     .hero {
@@ -124,16 +121,8 @@
     .play { background-color: white; color: black; }
     .info { background-color: rgba(109, 109, 110, 0.7); color: white; }
 
-    .carousel-section {
-      padding: 2rem;
-    }
-
-    .carousel-title {
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-    }
-
     .carousel {
+      padding: 2rem;
       overflow-x: auto;
       white-space: nowrap;
     }
@@ -178,11 +167,10 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header id="main-header" class="transparent">
     <img src="https://i.imgur.com/9QLXNMs.png" alt="Logo" class="logo" />
 
-    <!-- NAV ESCRITORIO -->
+    <!-- Menú escritorio -->
     <nav class="desktop-nav">
       <a href="#">Inicio</a>
       <a href="#">Mi cuenta</a>
@@ -190,18 +178,17 @@
       <a href="#">Cerrar sesión</a>
     </nav>
 
-    <!-- BOTÓN HAMBURGUESA -->
+    <!-- Botón hamburguesa móvil -->
     <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
-  </header>
 
-  <!-- MENÚ MÓVIL -->
-  <div class="mobile-menu" id="mobileMenu">
-    <img src="https://i.imgur.com/YhfKkCG.png" alt="Perfil" />
-    <a href="#">Inicio</a>
-    <a href="#">Mi cuenta</a>
-    <a href="#">Mi plan</a>
-    <a href="#">Cerrar sesión</a>
-  </div>
+    <!-- Menú móvil -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#">Inicio</a>
+      <a href="#">Mi cuenta</a>
+      <a href="#">Mi plan</a>
+      <a href="#">Cerrar sesión</a>
+    </div>
+  </header>
 
   <!-- HERO -->
   <section class="hero">
@@ -214,8 +201,8 @@
   </section>
 
   <!-- CARRUSEL -->
-  <section class="carousel-section">
-    <h2 class="carousel-title">🎬 Recomendados para ti</h2>
+  <section style="padding: 2rem;">
+    <h2 style="margin-bottom: 1rem;">🎬 Recomendados para ti</h2>
     <div class="carousel">
       <img src="https://i.imgur.com/F5wMnfP.png" />
       <img src="https://i.imgur.com/vylQH88.png" />
@@ -224,20 +211,22 @@
       <img src="https://i.imgur.com/MzptDGX.png" />
       <img src="https://i.imgur.com/F5wMnfP.png" />
       <img src="https://i.imgur.com/vylQH88.png" />
+      <img src="https://i.imgur.com/QA9TmRD.png" />
+      <img src="https://i.imgur.com/2o1BmpI.png" />
+      <img src="https://i.imgur.com/MzptDGX.png" />
     </div>
   </section>
 
   <!-- SCRIPT -->
   <script>
     const header = document.getElementById("main-header");
-    const menu = document.getElementById("mobileMenu");
-
     window.addEventListener("scroll", () => {
       header.classList.toggle("scrolled", window.scrollY > 10);
     });
 
     function toggleMenu() {
-      menu.classList.toggle("open");
+      const menu = document.getElementById("mobileMenu");
+      menu.classList.toggle("mobile-visible");
     }
   </script>
 
